@@ -2,34 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-const questions = [
-  {
-    id: 1,
-    question: "Se você pudesse jantar com qualquer figura histórica, quem seria?",
-    type: "text"
-  },
-  {
-    id: 2,
-    question: "Qual é a sua forma favorita de passar um domingo preguiçoso?",
-    type: "text"
-  },
-  {
-    id: 3,
-    question: "Se você pudesse dominar instantaneamente qualquer habilidade, qual seria?",
-    type: "text"
-  },
-  {
-    id: 4,
-    question: "Qual foi a coisa mais espontânea que você já fez?",
-    type: "text"
-  },
-  {
-    id: 5,
-    question: "Se você pudesse viver em qualquer universo fictício, qual você escolheria?",
-    type: "text"
-  }
-];
+import { userConfig, questions } from '../config';
 
 export default function QuestionsPage() {
   const router = useRouter();
@@ -57,9 +30,12 @@ export default function QuestionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 p-8">
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center mb-8 text-purple-600">
-          Vamos nos Conhecer! 💕
+        <h1 className="text-3xl font-bold text-center mb-4 text-purple-600">
+          Olá! Eu sou o {userConfig.name}! 💕
         </h1>
+        <p className="text-center text-gray-600 mb-8">
+          Vamos nos conhecer melhor através dessas perguntas divertidas!
+        </p>
         
         <div className="mb-8">
           <p className="text-lg text-gray-700 mb-4">
