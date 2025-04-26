@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -11,7 +11,7 @@ const formSchema = z.object({
   phone: z.string().min(10, "Por favor, insira um número de telefone válido"),
 });
 
-export default function ContactPage() {
+function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -120,5 +120,20 @@ export default function ContactPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-purple-600 mb-4">Carregando...</h1>
+          <p className="text-gray-600">Preparando o formulário... 🎉</p>
+        </div>
+      </div>
+    }>
+      <ContactForm />
+    </Suspense>
   );
 } 
