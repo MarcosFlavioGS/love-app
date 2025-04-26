@@ -34,7 +34,7 @@ export default function QuestionsPage() {
           Olá! Eu sou o {userConfig.name}! 💕
         </h1>
         <p className="text-center text-gray-600 mb-8">
-          Vamos nos conhecer melhor através dessas perguntas divertidas!
+          Já que você está por aqui, vamos nos conhecer melhor através dessas perguntas!
         </p>
         
         <div className="mb-8">
