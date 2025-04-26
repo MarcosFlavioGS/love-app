@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useSearchParams } from 'next/navigation';
-import { userConfig } from '../config';
 
 const formSchema = z.object({
   name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
@@ -62,7 +61,7 @@ function ContactForm() {
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
           <h1 className="text-3xl font-bold text-purple-600 mb-4">Obrigado! 💕</h1>
           <p className="text-lg text-gray-700">
-            O {userConfig.name} entrará em contato em breve! Tenha um ótimo dia! 😊
+            Entrarei em contato em breve! Tenha um ótimo dia! 😊
           </p>
         </div>
       </div>
