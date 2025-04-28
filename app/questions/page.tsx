@@ -55,6 +55,9 @@ export default function QuestionsPage() {
               }}
             />
           </div>
+        <p className="text-sm text-gray-700 mb-4">
+            *Minha resposta: {questions[currentQuestion].my}
+          </p>
         </div>
 
         <div className="flex justify-between items-center">
