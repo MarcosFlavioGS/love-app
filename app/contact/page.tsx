@@ -5,10 +5,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useSearchParams } from 'next/navigation';
+import { clearStoredAnswers, loadStoredAnswers, type LoveStoredAnswer } from '../love-data';
 
 const formSchema = z.object({
-  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
-  phone: z.string().min(10, "Por favor, insira um número de telefone válido"),
+  message: z.string().min(5, 'Escreva uma mensagem um pouquinho maior (minimo 5 caracteres).'),
 });
 
 function ContactForm() {
@@ -16,13 +16,13 @@ function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
-  const answers = searchParams.get('answers');
+  const answersFromUrl = searchParams.get('answers');
+  const [answersFromStorage] = useState<LoveStoredAnswer[]>(() => loadStoredAnswers());
   
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      phone: "",
+      message: "",
     }
   });
 
@@ -37,8 +37,8 @@ function ContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...data,
-          answers: answers ? JSON.parse(decodeURIComponent(answers)) : [],
+          message: data.message,
+          answers: answersFromUrl ? JSON.parse(decodeURIComponent(answersFromUrl)) : answersFromStorage,
         }),
       });
 
@@ -46,6 +46,7 @@ function ContactForm() {
         throw new Error('Falha ao enviar o formulário');
       }
 
+      clearStoredAnswers();
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -77,32 +78,17 @@ function ContactForm() {
         
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              Seu Nome
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+              Escreva sua mensagem pra mim
             </label>
-            <input
-              {...form.register("name")}
-              type="text"
-              className="w-full p-3 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-400"
-              placeholder="Digite seu nome"
+            <textarea
+              {...form.register('message')}
+              rows={5}
+              className="w-full p-3 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-400 resize-none"
+              placeholder="Ex.: Bea, eu gostei do que você escreveu... Querido, eu aceito ser sua namorada..."
             />
-            {form.formState.errors.name && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.name.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-              Seu Número de Telefone
-            </label>
-            <input
-              {...form.register("phone")}
-              type="tel"
-              className="w-full p-3 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-400"
-              placeholder="Digite seu número de telefone"
-            />
-            {form.formState.errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.phone.message}</p>
+            {form.formState.errors.message && (
+              <p className="text-red-500 text-sm mt-1">{form.formState.errors.message.message}</p>
             )}
           </div>
 

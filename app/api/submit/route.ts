@@ -11,14 +11,23 @@ if (!process.env.NOTIFICATION_EMAIL) {
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+function escapeHtml(input: string) {
+  return input
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
+
 export async function POST(request: Request) {
   try {
-    const { name, phone, answers } = await request.json()
-    console.log('Received submission:', { name, phone, answers })
+    const { message, answers } = await request.json()
+    console.log('Received submission:', { message, answers })
 
     // Validate required fields
-    if (!name || !phone) {
-      return NextResponse.json({ error: 'Nome e telefone são obrigatórios' }, { status: 400 })
+    if (!message || typeof message !== 'string' || message.trim().length < 5) {
+      return NextResponse.json({ error: 'Mensagem é obrigatória' }, { status: 400 })
     }
 
     // Only try to send email if we have the required environment variables
@@ -27,11 +36,11 @@ export async function POST(request: Request) {
         await resend.emails.send({
           from: 'onboarding@resend.dev',
           to: process.env.NOTIFICATION_EMAIL,
-          subject: `Nova resposta de ${name}!`,
+          subject: `Nova mensagem amorosa!`,
           html: `
             <h1>Nova resposta do seu app de paquera!</h1>
-            <p><strong>Nome:</strong> ${name}</p>
-            <p><strong>Telefone:</strong> ${phone}</p>
+            <h2>Mensagem</h2>
+            <p>${escapeHtml(message)}</p>
             <h2>Respostas:</h2>
             <pre>${JSON.stringify(answers, null, 2)}</pre>
           `
