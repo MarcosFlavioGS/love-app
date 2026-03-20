@@ -34,9 +34,16 @@ export type LoveFinalPage = {
   declineLabel: string
 }
 
+export type LoveHomeIntro = {
+  /** How long the first page stays visible before redirect (milliseconds). Example: 4000 = 4 seconds */
+  redirectDelayMs: number
+}
+
 export type LoveSite = {
   user: LoveUser
   bea: LoveGirl
+  /** Opening screen timing before `/questions/0` */
+  homeIntro: LoveHomeIntro
   story: LoveStorySection[]
   final: LoveFinalPage
 }
@@ -78,6 +85,9 @@ export const loveSite = {
   },
   bea: {
     name: 'Bea'
+  },
+  homeIntro: {
+    redirectDelayMs: 4000
   },
   story: [
     {

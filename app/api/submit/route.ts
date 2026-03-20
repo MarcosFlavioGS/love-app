@@ -36,9 +36,9 @@ export async function POST(request: Request) {
         await resend.emails.send({
           from: 'onboarding@resend.dev',
           to: process.env.NOTIFICATION_EMAIL,
-          subject: `Nova mensagem amorosa!`,
+          subject: `Nova mensagem da Bea!`,
           html: `
-            <h1>Nova resposta do seu app de paquera!</h1>
+            <h1>Nova resposta do seu app !</h1>
             <h2>Mensagem</h2>
             <p>${escapeHtml(message)}</p>
             <h2>Respostas:</h2>
