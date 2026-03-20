@@ -101,7 +101,7 @@ export const loveSite = {
       questions: [
         {
           id: 'q1',
-          prompt: `Se você fosse a mulher desta cena, Bea, eu te veria no que ninguém prova em voz alta.\nEu te veria em silêncio, no jeito de amar com calma.\n\nE então eu te peço: como sua alma quer ser vista por mim?`,
+          prompt: `Se você fosse a mulher desta cena, Bea, eu te veria no que ninguém prova em voz alta.\nEu te veria em silêncio.\n\nE então eu te peço: como sua alma quer ser vista por mim?`,
           exampleAnswer: `Shakespeare: "Lady Bea, aqui fala um homem do teatro. O que esse Marcos fez por voce e adoravel de verdade. Ha muito rapaz que promete, mas ele escreveu, montou pagina por pagina e abriu o coracao. Da valor, minha dama."`
         }
       ]
@@ -133,7 +133,7 @@ export const loveSite = {
       questions: [
         {
           id: 'q3',
-          prompt: `E se tudo o que tenta atrapalhar fosse só barulho lá fora?\nDentro de você, o amor continua pedindo verdade.\n\nEscreva: qual valor seu coração não abre mão quando ama?`,
+          prompt: `E se tudo o que tenta atrapalhar fosse só barulho lá fora?\nDentro de você, o amor continua pedindo verdade.\n\nQual valor seu coração não abre mão quando ama?`,
           exampleAnswer: `Shakespeare, com a mao no peito: "Se o amor verdadeiro pede atitude, esse Marcos entregou atitude em cada pagina. Bea, valoriza esse gesto raro. Nao aparece todo dia um homem que ama com criatividade e coragem."`
         }
       ]
@@ -181,24 +181,24 @@ export const loveSite = {
       questions: [
         {
           id: 'q6',
-          prompt: `Se o seu coração precisasse de coragem (e não de desculpas), ele não negociaria - ele chamaria.\nEle diria: "vem, deixa eu te mostrar o que eu sinto."\n\nQual é a primeira ação que você tomaria por amor, se tivesse certeza?`,
+          prompt: `Se o seu coração precisasse de coragem (e não de desculpas), ele não negociaria - ele chamaria.\nEle diria: "vem, deixa eu te mostrar o que eu sinto."\n\nQual é a primeira ação que você tomaria, se tivesse certeza?`,
           exampleAnswer: `John Donne: "Bea, sem rodeio: isso que o Marcos fez e ato de amor. Nao e frase pronta; e coragem posta em pratica. Se o coracao pede verdade, aqui esta. Da essa chance ao rapaz."`
         }
       ]
     },
     {
-      id: 'keats-bright-star',
+      id: 'blake-tyger-burning-bright',
       kind: 'poem',
-      pageTitle: 'Permanecer com você',
+      pageTitle: 'Brilho que nao apaga',
       quote: {
-        author: 'John Keats',
-        text: 'Bright star, would I were steadfast as thou art'
+        author: 'William Blake',
+        text: 'Tyger Tyger, burning bright'
       },
       questions: [
         {
           id: 'q7',
-          prompt: `Ser firme no amor não é ficar perfeito - é ficar.\nÉ presença nos dias leves e nos dias difíceis.\n\nAgora me diga: qual desses jeitos é o mais verdadeiro em você?`,
-          exampleAnswer: `Keats: "Bea, eu escrevi sobre estrelas, mas hoje eu diria sobre constancia. O Marcos foi constante no cuidado e no esforco por voce. Isso e bonito, e raro. Meu voto poetico: aceita e ve onde esse amor pode chegar."`
+          prompt: `Tigre de fogo, luz na escuridao.\nAs vezes o amor arde sem pedir licenca - e mesmo assim e bonito.\n\nO que em voce "queima" de um jeito bom quando voce pensa em amar de verdade?`,
+          exampleAnswer: `William Blake (olhos brilhando): "Bea, eu escrevi sobre um tigre que arde na floresta da noite. Esse Marcos arde por voce com o mesmo brilho - intensidade, nao pose. Da valor ao rapaz."`
         }
       ]
     }
@@ -206,7 +206,7 @@ export const loveSite = {
   final: {
     title: 'Bea... aceita ser minha namorada?',
     message: `Depois de imaginar você como a mulher das histórias e poemas, eu só cheguei a uma conclusão: eu quero cuidar de você de verdade. Quer ser minha namorada, Bea?`,
-    acceptLabel: 'Sim, vamos viver isso !!',
+    acceptLabel: 'Sim, eu quero !!',
     declineLabel: 'Com certeza !!'
   }
 } satisfies LoveSite
