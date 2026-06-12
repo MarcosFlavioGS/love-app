@@ -76,7 +76,7 @@ export const loveSite = {
     {
       id: 'vizinhos',
       pageTitle: 'Vizinhos, Volumes e o que não Víamos',
-      declaration: `Vivemos vidas vizinhas por dez anos — a mesma vila, as mesmas vielas, volumes de livros nas mãos e nenhum sinal do que viria. Ver você todos esses anos sem ver o que você era pra mim: talvez fosse o jeito do destino guardar o melhor pro final.`,
+      declaration: `Vivemos vidas vizinhas por dez anos — a mesma vila, as mesmas vielas, volumes de livros nas mãos e nenhum sinal do que viria. Passando por você todos esses anos sem ver o que você era pra mim: talvez fosse o jeito do destino guardar o melhor pro final.`,
       question: 'Onde você estava todo esse tempo ein ?'
     },
     {
