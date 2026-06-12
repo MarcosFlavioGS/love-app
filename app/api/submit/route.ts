@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         await resend.emails.send({
           from: 'onboarding@resend.dev',
           to: process.env.NOTIFICATION_EMAIL,
-          subject: `Nova mensagem da Bea!`,
+          subject: `Dia dos Namorados — mensagem da Bea 💜`,
           html: `
             <h1>Nova resposta do seu app !</h1>
             <h2>Mensagem</h2>

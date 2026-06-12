@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { loveSite } from './love-data'
 
 export default function Home() {
@@ -16,12 +17,21 @@ export default function Home() {
   }, [router])
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex items-center justify-center'>
-      <div className='text-center'>
-        <h1 className='text-4xl font-bold text-purple-600 mb-4'>
-          Olá! Eu sou o {loveSite.user.name}, mais conhecido como AMOR DA SUA VIDA ! 👋
+    <div className='min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex items-center justify-center p-8'>
+      <div className='text-center max-w-lg'>
+        <div className='relative w-72 h-72 mx-auto mb-8 rounded-full overflow-hidden shadow-xl ring-4 ring-purple-300'>
+          <Image
+            src='/casal.jpg'
+            alt='Nós dois'
+            fill
+            className='object-cover'
+            priority
+          />
+        </div>
+        <h1 className='text-4xl font-bold text-purple-700 mb-3'>
+          Feliz Dia dos Namorados, {loveSite.bea.name} 💜
         </h1>
-        <p className='text-gray-600'>Redirecionando você para a parte que importa ! 🎉</p>
+        <p className='text-gray-500 text-base'>Preparei algo pra você...</p>
       </div>
     </div>
   )
