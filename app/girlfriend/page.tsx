@@ -17,12 +17,12 @@ export default function CelebrationPage() {
     <div className='min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 p-8 flex items-center justify-center'>
       <div className='max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center'>
 
-        <div className='relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden shadow-lg ring-4 ring-purple-300'>
+        <div className='relative w-full max-w-sm mx-auto mb-6 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg ring-4 ring-purple-300'>
           <Image
             src='/casal.jpg'
             alt='Nós dois'
             fill
-            className='object-cover'
+            className='object-cover object-top'
           />
         </div>
 

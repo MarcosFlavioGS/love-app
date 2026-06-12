@@ -19,12 +19,12 @@ export default function Home() {
   return (
     <div className='min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 flex items-center justify-center p-8'>
       <div className='text-center max-w-lg'>
-        <div className='relative w-72 h-72 mx-auto mb-8 rounded-full overflow-hidden shadow-xl ring-4 ring-purple-300'>
+        <div className='relative w-full max-w-sm mx-auto mb-8 aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-4 ring-purple-300'>
           <Image
             src='/casal.jpg'
             alt='Nós dois'
             fill
-            className='object-cover'
+            className='object-cover object-top'
             priority
           />
         </div>
